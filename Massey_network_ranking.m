@@ -21,20 +21,24 @@ b = 2;
 X = zeros(21,7);
 Y = zeros(21,1);
 for a = 1:7
-    %b = a + 1;
-    while b <= 7
-        if Q(a) < Q(b)
-            X(c,a) = -1;
-            X(c,b) = 1;
-            c = c + 1;
-            b = b + 1;
-        elseif Q(a) > Q(b)
-            X(c,b) = -1;
-            X(c,a) = 1;
-            c = c + 1;
-            b = b + 1;
-        end
-        b = a + 1;
+    for b = a+1:7
+        %while b <= 7
+            if Q(a) < Q(b)
+                X(c,a) = -1;
+                X(c,b) = 1;
+                c = c + 1;
+                %b = b + 1;
+            elseif Q(a) > Q(b)
+                X(c,b) = -1;
+                X(c,a) = 1;
+                c = c + 1;
+                %b = b + 1;
+            else 
+                X(c,b) = 0;
+                X(c,a) = 0;
+                c = c+1;
+            end
+        %end
     end
     
 end
