@@ -18,7 +18,8 @@ PRM = zeros(240,5); % for borda ranking matrix, first row to fifth row represent
                  % HC, BS, JK, TC, DT
                  
 
-                 
+
+% These 3 for loops 
 for i = 1:240
     for j = 1:5
         if M{j}{i} == 'HC'
