@@ -53,5 +53,5 @@ fprintf('The unique solution of question 1 to 7: \n')
 disp(r);
 
 fprintf('The difficulty rank of these 7 questions is %d %d %d %d %d %d %d. \n', ranked(1), ranked(2), ranked(3), ranked(4), ranked(5), ranked(6), ranked(7))
-fprintf('fifth and sixth question is the most difficult and first question is the easiest.')
+fprintf('second question is the most difficult and fifth and sixth question are the easiest.')
 fprintf('\n')
