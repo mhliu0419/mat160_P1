@@ -1,7 +1,10 @@
-# mat160_P1
+# MAT 160 (Data Analysis) Project 1
 
-Minghao Liu
+# Topic: Linear Algebra, Ranking, SVD, Image Processing
 
-Shiyu Tu
+# Collaborator:
+  Minghao Liu
 
-Chutong Wu
+  Shiyu Tu
+
+  Chutong Wu
