@@ -18,7 +18,8 @@ PRM = zeros(240,5); % for borda ranking matrix, first row to fifth row represent
                  % HC, BS, JK, TC, DT
                  
 
-                 
+% To get a 250 by 5 PRM matrix, 250 voters for 250 rows, and 5 columns for rank points from 5 to 1
+
 for i = 1:240
     for j = 1:5
         if M{j}{i} == 'HC'
@@ -35,8 +36,9 @@ for i = 1:240
     end
 end
 
-PRM2 = zeros(5,5);
+% From 5 by 5 PRM2 matrix, PRM2(i,j) means the total number of competitions i defeats j
 
+PRM2 = zeros(5,5);
 
 for i = 1:240
     for j = 1:5
@@ -47,6 +49,9 @@ for i = 1:240
         end
     end
 end
+
+% By calculate the whole PRM2 matrix, calculate the total number of competition j defeats i 
+% is equal to 240 - the total number of competitions i defeats j
 
 for i = 1:5
     for j = 1:5
@@ -60,6 +65,8 @@ for i = 1:5
     end
 end
 
+% PRM3 is a 5 by 1 column matrix of the total loss of each candidates
+
 PRM3 = zeros(5,1);
 
 for i = 1:240
@@ -67,6 +74,8 @@ for i = 1:240
         PRM3(j) = PRM3(j) + 5 - PRM(i,j);
     end
 end
+
+% PRM4 is the stochastic matrix
 
 PRM4 = zeros(5,5);
 
@@ -82,7 +91,7 @@ disp(PRM4)
 
 [V,D] = eig(PRM4);
 
-%eigenvector of the stochatistic matrix corresponding to eigenvalue 1 
+%eigenvector of the stochastic matrix corresponding to eigenvalue 1 
 %shows the rank
 Eigv = V(:,1);
 
