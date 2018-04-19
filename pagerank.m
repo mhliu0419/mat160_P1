@@ -18,8 +18,7 @@ PRM = zeros(240,5); % for borda ranking matrix, first row to fifth row represent
                  % HC, BS, JK, TC, DT
                  
 
-
-% These 3 for loops 
+                 
 for i = 1:240
     for j = 1:5
         if M{j}{i} == 'HC'
@@ -77,8 +76,25 @@ for i = 1:5
     end
 end
 
+fprintf('For pagerank matrix, first row to fifth row represent 1st place to 5th place\n') 
+fprintf('first column to fifth column represent in the order of HC, BS, JK, TC, DT\n\n')
+disp(PRM4)
+
 [V,D] = eig(PRM4);
 
-V(:,1);
+%eigenvector of the stochatistic matrix corresponding to eigenvalue 1 
+%shows the rank
+Eigv = V(:,1);
 
-%still need to rank the the vector (it is a column vector)
+            
+Rank = [Eigv(1),Eigv(2),Eigv(3),Eigv(4),Eigv(5)];
+particpent_name = {'HC','BS','JK','TC','DT'};
+[maximum,index] = max(Rank);
+[sorted_value,ranked] = sort(Rank, 'descend');
+
+fprintf('The pagerank method rank five candidates in the order of %s %s %s %s %s\n',particpent_name{ranked(1)},particpent_name{ranked(2)},particpent_name{ranked(3)},particpent_name{ranked(4)},particpent_name{ranked(5)})
+
+show_winner_name_text = [particpent_name{index},' wins in the election'];
+disp(show_winner_name_text);
+show_winner_votes_text = [particpent_name{index},' has won with maximum Borda points: '];
+
