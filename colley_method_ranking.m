@@ -44,9 +44,9 @@ Point_Matrix = zeros(2,7);
 for e = 1:7
     for f = 1:21
         if X(f,e) == 1
-            Point_Matrix(1,e) = Point_Matrix(1,e) + 1;
+            Point_Matrix(1,e) = Point_Matrix(1,e) + 1; %每道题赢的次数
         elseif X(f,e) == -1
-            Point_Matrix(2,e) = Point_Matrix(2,e) + 1;
+            Point_Matrix(2,e) = Point_Matrix(2,e) + 1; %每道题输的次数
         end
     end
 end     
@@ -62,25 +62,25 @@ v = [2,2,2,2,2,2,2];
 Any_matrix_diag = diag(v);
 A = Any_matrix_diag + M;
 
-% get Wi
+% get the # of Win
 W = zeros(7,1);
 for f = 1:7
     W(f) = Point_Matrix(1,f);
 end
 
-% get li
+% get the # of lose
 L = zeros(7,1);
 for g = 1:7
     L(g) = Point_Matrix(2,g);
 end
 
-% get bi = 1 + 1/2(wi - li)
+% get b_i = 1 + 1/2(W - L)
 B = zeros(7,1);
 for h = 1:7
     B(h) = 1 + (1/2) * (W(h) - L(h));
 end
 
-% get ri
+% get r_i
 r = A \ B;
 
 [sorted_value,ranked] = sort(r,'ascend');
