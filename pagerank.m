@@ -48,19 +48,17 @@ for i = 1:240
     end
 end
 
-
 for i = 1:5
     for j = 1:5
         if i < j
             PRM2(i,j) = PRM2(i,j);
         elseif i == j
             PRM2(i,j) = 0;
-        else
+        else 
             PRM2(i,j) = 240 - PRM2(j,i);
         end
     end
 end
-
 
 PRM3 = zeros(5,1);
 
@@ -99,4 +97,3 @@ fprintf('The pagerank method rank five candidates in the order of %s %s %s %s %s
 show_winner_name_text = [particpent_name{index},' wins in the election'];
 disp(show_winner_name_text);
 show_winner_votes_text = [particpent_name{index},' has won with maximum Borda points: '];
-
