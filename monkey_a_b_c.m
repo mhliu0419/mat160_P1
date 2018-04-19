@@ -11,15 +11,19 @@ stem(diag(S)); grid %plot singular value
 %part c
 %rank 1 approximation of image X
 subplot(2,2,1)
-X_1 = U(:,1)*S(1,1)*V(:,1)'
+X_1 = U(:,1)*S(1,1)*V(:,1)';
 image(X_1); colormap(map)
 title('k = 1');
 
-%rank 2 approximation of image X
 subplot(2,2,2)
-X_2 = X_1 + U(:,2)*S(2,2)*V(:,2)'
-image(X_2); colormap(map)
-title('k = 2');
+Xk = X_1;
+%residue of rank 6
+for k = 2:6
+    Xk = Xk + U(:,k)*S(k,k)*V(:,k)';
+end
+image(Xk); colormap(map)
+title('k = 6');
+
 
 
 
