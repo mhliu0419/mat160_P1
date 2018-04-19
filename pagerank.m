@@ -48,17 +48,19 @@ for i = 1:240
     end
 end
 
+
 for i = 1:5
     for j = 1:5
         if i < j
             PRM2(i,j) = PRM2(i,j);
         elseif i == j
             PRM2(i,j) = 0;
-        else i > j
+        else
             PRM2(i,j) = 240 - PRM2(j,i);
         end
     end
 end
+
 
 PRM3 = zeros(5,1);
 
