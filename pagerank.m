@@ -77,4 +77,8 @@ for i = 1:5
     end
 end
 
-[V,D] = eig(PRM4)
+[V,D] = eig(PRM4);
+
+V(:,1);
+
+%still need to rank the the vector (it is a column vector)
